@@ -42,29 +42,34 @@ namespace wemaTask.Controllers
         {
             _userService.Register(model);
 
-            // gen 4 digit random number from 0-9
-            //string numbers = "1234567890";
 
-            //string characters = numbers;
-            //if (ddlLength == "1")
-            //{
-            //    characters += numbers;
-            //}
-            //int length = int.Parse(ddlLength.ToString());
-            string otp = string.Empty;
-            //for (int i = 0; i < length; i++)
-            //{
-            //    string character = string.Empty;
-            //    do
-            //    {
-            //        int index = new Random().Next(0, characters.Length);
-            //        character = characters.ToCharArray()[index].ToString();
-            //    } while (otp.IndexOf(character) != -1);
-            //    otp += character;
-            //}
+            Random r = new Random();
+            int otp = r.Next(9);
 
-            //send theb otp has respone
-            return Ok(new { iSuccess=true, message = "Registration is successful kindly enter otp send to your number or email for:"+otp+"to complete process" });
+
+                // gen 4 digit random number from 0-9
+                //string numbers = "1234567890";
+
+                //string characters = numbers;
+                //if (ddlLength == "1")
+                //{
+                //    characters += numbers;
+                //}
+                //int length = int.Parse(ddlLength.ToString());
+                //string otp = string.Empty;
+                //for (int i = 0; i < length; i++)
+                //{
+                //    string character = string.Empty;
+                //    do
+                //    {
+                //        int index = new Random().Next(0, characters.Length);
+                //        character = characters.ToCharArray()[index].ToString();
+                //    } while (otp.IndexOf(character) != -1);
+                //    otp += character;
+                //}
+
+                //send theb otp has respone
+                return Ok(new {  iSuccess=true, message = "Registration is successful kindly enter otp send to your number or email for:" + otp + "to complete process" });
         }
 
         [HttpGet("api/users")]

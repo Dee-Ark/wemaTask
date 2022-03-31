@@ -4,7 +4,7 @@
 
 namespace wemaTask.Migrations
 {
-    public partial class WemaALTTaskDBTest : Migration
+    public partial class WemaTaskDBTest : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -17,6 +17,7 @@ namespace wemaTask.Migrations
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Stateofresidence = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Lga = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: false)

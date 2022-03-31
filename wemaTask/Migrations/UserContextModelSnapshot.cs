@@ -45,6 +45,9 @@ namespace wemaTask.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Stateofresidence")
                         .HasColumnType("nvarchar(max)");
 

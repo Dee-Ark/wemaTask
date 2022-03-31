@@ -15,7 +15,7 @@ public class UserContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder options)
     {
         // connect to sql server database
-        options.UseSqlServer(Configuration.GetConnectionString("WemaALTTaskDBTest"));
+        options.UseSqlServer(Configuration.GetConnectionString("WemaTaskDBTest"));
     }
 
     public DbSet<User> Users { get; set; }

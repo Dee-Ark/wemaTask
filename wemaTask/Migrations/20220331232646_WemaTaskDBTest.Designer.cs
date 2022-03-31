@@ -11,8 +11,8 @@ using WebApi.Helpers;
 namespace wemaTask.Migrations
 {
     [DbContext(typeof(UserContext))]
-    [Migration("20220331135837_WemaALTTaskDBTest")]
-    partial class WemaALTTaskDBTest
+    [Migration("20220331232646_WemaTaskDBTest")]
+    partial class WemaTaskDBTest
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -45,6 +45,9 @@ namespace wemaTask.Migrations
 
                     b.Property<string>("PasswordHash")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Stateofresidence")

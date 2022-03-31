@@ -35,12 +35,20 @@ public class UserService : IUserService
 
     public Response Authenticate(Login model)
     {
-        var user = _context.Users.SingleOrDefault(x => x.Email == model.Email);
+        var user = _context.Users.SingleOrDefault(x => x.Email == model.Email && x.PasswordHash == model.Password);
 
         // validate
-        if (user == null || !BCrypt.Verify(model.Password, user.PasswordHash))
-            if(model.Password == user.PasswordHash)
-            throw new AppException("Email or password is incorrect");
+        try
+        {
+            if (user == null || !BCrypt.Verify(model.Password, user.PasswordHash))
+                if (model.Password == model.Password)
+                    throw new AppException("Email or password is incorrect");
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
 
         // authentication successful
         var response = _mapper.Map<Response>(user);
